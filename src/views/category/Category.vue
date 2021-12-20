@@ -416,9 +416,7 @@
       }
     },
     created() {
-      // this.bScroll = new BScroll(document.querySelector('.wrapper'),{
-      //
-      // })
+
     },
 
     mounted() {

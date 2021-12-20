@@ -14,9 +14,9 @@
 <script>
   import BScroll from 'better-scroll'
   // import ObserveImage from '@better-scroll/observe-image'
-  // import ObserveDOM from '@better-scroll/observe-dom'
+  import ObserveDOM from '@better-scroll/observe-dom'
   // BScroll.use(ObserveImage)  //解决图片下拉时的卡顿问题
-  // BScroll.use(ObserveDOM)
+   BScroll.use(ObserveDOM)
 
   export default {
     name: "Scroll",
@@ -41,20 +41,25 @@
         click: true,
         probeType: this.probeType,
         pullUpLoad: this.pullUpLoad,
-        // observeDOM: true,
-        // observeImage: true,
+        observeDOM: true,
+        //observeImage: true,
       })
 
       //2.监听滚动的位置
-      this.scroll.on('scroll', (position) => {
-        this.$emit('scroll',position)
-      })
+      if (this.probeType){
+        this.scroll.on('scroll', (position) => {
+          this.$emit('scroll',position)
+        })
+      }
+
 
       //3.监听上拉事件
-      this.scroll.on('pullingUp', () => {
-        this.$emit('pullingUp')
-        this.scroll.finishPullUp()
-      })
+      if (this.pullUpLoad){
+        this.scroll.on('pullingUp', () => {
+          this.$emit('pullingUp')
+          this.scroll.finishPullUp()
+        })
+      }
     },
     methods: {
       /**

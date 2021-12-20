@@ -15,7 +15,7 @@ export function request(config) {
     console.log(error);
   })
 
-  //2.2.响应拦截
+  //2.2.响应拦截(将不需要的数据过滤掉，直接返回data)
   instance.interceptors.response.use(res => {
     console.log(res);
     return res.data
