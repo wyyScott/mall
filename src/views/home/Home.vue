@@ -42,7 +42,7 @@ import HomeFeatureView from "./childComps/HomeFeatureView";
 import {getHomeMultidata,getHomeGoods} from "network/home";
 import {debounce} from "common/utils";
 
-import emitter from "utils/eventbus/eventbus";
+import emitter from "eventbus/eventbus";
 
 export default {
   name: "Home",

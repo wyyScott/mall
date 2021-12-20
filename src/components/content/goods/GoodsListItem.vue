@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import emitter from "utils/eventbus/eventbus";
+  import emitter from "eventbus/eventbus";
 
   export default {
     name: "GoodsListItem",

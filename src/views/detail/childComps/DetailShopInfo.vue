@@ -8,7 +8,8 @@
       <div class="shop-middle-item shop-middle-left">
         <div class="info-sells">
           <div class="sells-count">
-            {{shop.sells | sellCountFilter}}
+<!--            {{shop.sells | sellCountFilter}}-->
+            {{sellCount}}
           </div>
           <div class="sells-text">总销量</div>
         </div>
@@ -46,12 +47,20 @@
         }
       }
     },
-    filters: {
-      sellCountFilter(value) {
+    computed: {
+		  sellCount() {
+        let value = this.shop.sells
         if (value < 10000) return value;
         return (value/10000).toFixed(1) + '万'
       }
-    }
+    },
+    //vue3不推荐使用filters,官方推荐直接使用计算属性
+    // filters: {
+    //   sellCountFilter(value) {
+    //     if (value < 10000) return value;
+    //     return (value/10000).toFixed(1) + '万'
+    //   }
+    // }
 	}
 </script>
 
